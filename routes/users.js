@@ -35,6 +35,7 @@ router.post(
         let user = new User();
         user.name = name;
         user.email = email;
+        user.isAdmin = false;
 
         // Hash the password
         let salt = bcrypt.genSaltSync(10);
@@ -58,6 +59,7 @@ router.post(
           return res.json({
             token: token,
             user: user.id,
+            isAdmin: user.isAdmin
           });
         });
       }
