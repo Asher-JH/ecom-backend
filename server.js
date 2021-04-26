@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const PORT = 4000;
 
 // Connect to the Database "ecommerce" in Robo3T
 mongoose.connect(
@@ -30,4 +29,4 @@ app.use("/items", require("./routes/items"));
 app.use("/carts", require("./routes/carts"));
 app.use("/orders", require("./routes/orders"));
 
-app.listen(PORT, () => console.log(`App is listening in port ${PORT}`));
+app.listen(process.env.PORT || 4000, () => console.log(`App is listening in port ${process.env.PORT || 4000}`));
